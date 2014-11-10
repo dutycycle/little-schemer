@@ -184,3 +184,9 @@
     (cond
      ((= n 1) (car lat))
      (else (pick (sub1 n) (cdr lat))))))
+
+(define rempick
+  (lambda (n lat)
+    (cond
+     ((= n 1) ((eq (car lat) lat) () (lat)))
+     (else (rempick (sub1 n) (cons (car lat) (cdr lat)))))))
